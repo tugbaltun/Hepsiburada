@@ -1,0 +1,818 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>urunler</title>
+<meta name="viewport" content="width=device-width " />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	/** -----------------------------------------
+	 * Modulo del Slider 
+	 -------------------------------------------*/
+	 var SliderModule = (function() {
+	 	var pb = {};
+	 	pb.el = $('#slider');
+	 	pb.items = {
+	 		panels: pb.el.find('.slider-wrapper > li'),
+	 	}
+
+	 	// Interval del Slider
+	 	var SliderInterval,
+	 		currentSlider = 0,
+	 		nextSlider = 1,
+	 		lengthSlider = pb.items.panels.length;
+
+	 	// Constructor del Slider
+	 	pb.init = function(settings) {
+	 		this.settings = settings || {duration: 8000};
+	 		var items = this.items,
+	 			lengthPanels = items.panels.length,
+	 			output = '';
+
+	 		// Insertamos nuestros botones
+	 		for(var i = 0; i < lengthPanels; i++) {
+	 			if(i == 0) {
+	 				output += '<li class="active"></li>';
+	 			} else {
+	 				output += '<li></li>';
+	 			}
+	 		}
+
+	 		$('#control-buttons').html(output);
+
+	 		// Activamos nuestro Slider
+	 		activateSlider();
+	 		// Eventos para los controles
+	 		$('#control-buttons').on('click', 'li', function(e) {
+	 			var $this = $(this);
+	 			if(!(currentSlider === $this.index())) {
+	 				changePanel($this.index());
+	 			}
+	 		});
+
+	 	}
+
+	 	// Funcion para activar el Slider
+	 	var activateSlider = function() {
+	 		SliderInterval = setInterval(pb.startSlider, pb.settings.duration);
+	 	}
+
+	 	// Funcion para la Animacion
+	 	pb.startSlider = function() {
+	 		var items = pb.items,
+	 			controls = $('#control-buttons li');
+	 		// Comprobamos si es el ultimo panel para reiniciar el conteo
+	 		if(nextSlider >= lengthSlider) {
+	 			nextSlider = 0;
+	 			currentSlider = lengthSlider-1;
+	 		}
+
+	 		controls.removeClass('active').eq(nextSlider).addClass('active');
+	 		items.panels.eq(currentSlider).fadeOut('slow');
+	 		items.panels.eq(nextSlider).fadeIn('slow');
+
+	 		// Actualizamos los datos del slider
+	 		currentSlider = nextSlider;
+	 		nextSlider += 1;
+	 	}
+
+	 	// Funcion para Cambiar de Panel con Los Controles
+	 	var changePanel = function(id) {
+	 		clearInterval(SliderInterval);
+	 		var items = pb.items,
+	 			controls = $('#control-buttons li');
+	 		// Comprobamos si el ID esta disponible entre los paneles
+	 		if(id >= lengthSlider) {
+	 			id = 0;
+	 		} else if(id < 0) {
+	 			id = lengthSlider-1;
+	 		}
+
+	 		controls.removeClass('active').eq(id).addClass('active');
+	 		items.panels.eq(currentSlider).fadeOut('slow');
+	 		items.panels.eq(id).fadeIn('slow');
+
+	 		// Volvemos a actualizar los datos del slider
+	 		currentSlider = id;
+	 		nextSlider = id+1;
+	 		// Reactivamos nuestro slider
+	 		activateSlider();
+	 	}
+
+		return pb;
+	 }());
+
+	 SliderModule.init({duration: 4000});
+
+});
+
+jQuery(document).ready(function ($) {
+
+  $('#checkbox').change(function(){
+    setInterval(function () {
+        moveRight();
+    }, 3000);
+  });
+  
+	var slideCount = $('#slider2 ul li').length;
+	var slideWidth = $('#slider2 ul li').width();
+	var slideHeight = $('#slider2 ul li').height();
+	var sliderUlWidth = slideCount * slideWidth;
+	
+	$('#slider2').css({ width: slideWidth, height: slideHeight });
+	
+	$('#slider2 ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+	
+    $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+
+    function moveLeft() {
+        $('#slider2 ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+            $('#slider2 ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider2 ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider2 ul li:first-child').appendTo('#slider2 ul');
+            $('#slider2 ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});
+
+$("#urun").hover(function(){
+   $("#urun #extraindirim").hide();
+   $("#sepetekle").fadeIn()},
+   function(){
+   $("#urun #extraindirim").show();
+   $("#urun #sepetekle").css('display','none');}
+});
+</script>
+
+
+<script type="text/javascript" >
+
+</script>
+
+<link href="urunlercss.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+  <div id="header1">
+    <p align="center" id="ekler" name="ekler"> <a href="#">Siparişlerim</a> <a href="#">Günün Fırsatları</a> <a href="#">Hediye Çeklerim</a> <a href="#">Tek Tıkla Alışveriş</a> <a href="#">Kampanyalar</a> <a href="#">Girişimci Kadınlar</a> <a href="#">Yardım</a> <a href="#">Bize Sorun</a></p>
+	</div>
+  	<div id="header2">
+    	<div id="logo"><img src="logo.PNG" width="150" height="33" alt=""/></div>
+    		<div id="aramamotoru">
+    			<form method="get">
+					<div class="boxbox">
+						<img src="../hepsiburada_proje/images/arama.png">
+  						<input class="search" type="text" placeholder="Powerbank'ini yanına al hiç şarjın bitmesin" onClick="temizleDegistir()" />
+  						<input class="submit" type="submit" value="ARA"/>
+					</div>
+				</form>
+    		</div>
+   			<div id="uyegirisi">
+    			<nav role="navigation" class="nav">
+    			<ul class="nav-items">
+        			<li class="nav-item down">
+            		<a href="#" class="nav-link"><img src="../hepsiburada_proje/images/oturum2.png"  /><span>Giriş Yap</span><p style="font-size: 10px;margin:-15px auto auto 15px;color:#919191;">veya üye ol</p></a>
+            		<nav class="submenu">
+                		<ul class="submenu-items">
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Giriş Yap</a></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Üye Ol</a></li>
+                    		<li class="submenu-item"><hr class="submenu-seperator" /></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Siparişlerim</a></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Hesabım</a></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Favori Listem</a></li>
+                    		<li class="submenu-item"><hr class="submenu-seperator" /></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Hediye Çeklerim</a></li>
+                    		<li class="submenu-item"><hr class="submenu-seperator" /></li>
+                    		<li class="submenu-item"><a href="#" class="submenu-link">Mesajlarım</a></li>
+                		</ul>
+            		</nav>
+        			</li>  
+    			</ul>
+				</nav>
+    		</div>
+
+    	<div id="sepet">
+    		<img src="../hepsiburada_proje/images/sepet.png"/><p>Sepetim</p>
+    	</div>
+  	</div>
+
+  	<div id="menu">
+  		  <div class="dropdown" style="text-align: center">
+    <button class="dropbtn">ELEKTRONİK 
+    </button>
+
+<div id="Layer1" onmouseover="GizleGoster('Layer1')" onmouseout="GizleGoster2('Layer1')" >
+  <div class="column">
+</div>
+</div>
+</div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">HEPSİMODA 
+    </button>
+    <div class="dropdown-content"> 
+      <div class="row">
+        <div class="column">
+          <th>
+            <td><h3>Moda Anasayfa</h3></td>
+            <td><h3>Tüm Spor Ürünleri</h3></td>
+            <td><h3>Kadın</h3></td>
+          <th>
+
+          <ul>
+          	<li><p id="yanyana"> <a href="#">Giyim</a>, <a href="#">İç Giyim</a>, <a href="#">Spor Giyim</a>,</li> </p>
+          </ul>
+          <ul>
+          <li><a>Ayakabı,</a></li>
+          <li><a>Spor Ayakkabı,</a></li>
+          <li><a>Outdoor,</a></li>
+          </ul><br>
+
+          <ul>
+          <li><a>Çanta,</a></li>
+          <li><a>Tesettür Giyim,</a></li>
+          <li><a>Aksesuar,</a></li>
+          </ul><br>
+
+          <ul>
+          <li><a>Şemsiye,</a></li>
+          <li><a>Saç Aksesuarları,</a></li>
+          <li><a>Eşarp,</a></li>
+          </ul><br>
+
+          <ul>
+          <li><a>Şarp,</a></li>
+          </ul><br>
+        </div>
+
+        <div class="column">
+          <th>
+            <td><h3>Saatler</h3></td>
+          </th>
+          <ul>
+          <li><a>Kol Saaleri</a></li>
+          <li><a>Masa Saatleri</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <th>
+            <td><h3>Takı Mücevher</h3></td>
+          </th>
+
+          <ul>
+          <li><a>Yüzük,</a></li>
+          <li><a>Bilezik</a></li>
+          <li><a>Kolye,</a></li>
+          <li><a>Küpe</a></li>
+          </ul><br>
+
+          <ul>
+          <li><a>Bileklik,</a></li>
+          <li><a>Takı Seti,</a></li>
+          <li><a>Aksesuar,</a></li>
+          <li><a>Erkek Takıları,</a></li>
+          </ul><br>
+        </div>
+
+        <div class="column">
+          <img src="../hepsiburada_proje/images/kadın.png">
+        </div>
+
+        <div class="column">
+          <img src="../hepsiburada_proje/images/erkek.png">
+        </div>
+
+
+
+      </div>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">EV, YAŞAM, KIRTASİYE, OFİS
+    </button>
+  </div> 
+
+
+  <div class="dropdown">
+    <button class="dropbtn">OTO, BAHÇE ,YAPI MARKET
+    </button>
+  </div> 
+
+
+  <div class="dropdown">
+    <button class="dropbtn">ANNE, BEBEK OYUNCAK
+    </button>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">SPOR OUTDOOR
+    </button>
+ </div> 
+
+<div class="dropdown">
+    <button class="dropbtn">KOZMETİK KİŞİSEL BAKIM
+    </button>
+ </div> 
+
+ <div class="dropdown">
+    <button class="dropbtn">SÜPERMARKET PETSHOP
+    </button>
+ </div> 
+
+ <div class="dropdown">
+    <button class="dropbtn">KİTAP, MÜZİK, FİLM ,HOBİ
+    </button>
+ </div> 
+  	</div>
+
+<div id="baslik">
+    <ul>
+    <li><h4><pre>Ana Sayfa  &rsaquo;  </pre></h4></li>
+    <li><div id="baslikici">Hobi Oyun Konsolları</div></li>
+    <li><h4><pre>  &rsaquo;  Hobi Eğlence Ürünleri</pre></h4></li>
+    </ul>
+</div>
+
+  	<div id="galeri1">
+  		<section id="slider" class="container">
+			<ul class="slider-wrapper">
+				<li class="current-slide">
+				<img src="../hepsiburada_proje/urunlerimages/1.png" title="" alt="">
+				</li>
+
+				<li>
+				<img src="../hepsiburada_proje/urunlerimages/2.png" title="" alt="">
+				</li>
+
+				<li>
+				<img src="../hepsiburada_proje/urunlerimages/3.png" title="" alt="">
+				</li>
+			</ul>
+		<!-- Sombras -->
+		<!-- Controles de Navegacion -->
+			<ul id="control-buttons" class="control-buttons">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</section>
+  	</div>
+
+<div id="gununfirsatlari">
+	<span style="text-align: center;">Günün Fırsatları</span><br>
+	<div id="sayac"><h3>01</h3><h4>Gün</h4></div>
+	<div id="sayac"><h3>15</h3><h4>saat</h4></div>
+	<div id="sayac"><h3>36</h3><h4>Dakika</h4></div>
+	<img src="../hepsiburada_proje/urunlerimages/g1.png">
+	<p><h4>Parrot Mambo FPV(CameraiFlypad,VR Goggles)</h4></p>
+	<div id="indirim1"><br>&#37;32</div>
+	<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">1.608,77 TL</li>
+		<li >1.099,05 TL</li></div>
+	<div id="extraindirim">
+		<p style="color:green;">Ekstra %19 indirimli fiyat</p>
+		<p><h3>894,00 TL</h3></p>
+	</div>
+</div>
+
+<div id="urunler">
+	<div id="urunbaslik">
+		<ul>
+			<li><a href="#">Çok satanlar</a></li>
+			<li><a href="#">En yeniler</a></li>
+			<li><a href="#">En düşük fiyat</a></li>
+			<li><a href="#">En yüksek fiyat</a></li>
+			<li><a href="#">Diğer </a><div class="vl"></div><div class="ok"></div></li>
+		</ul>
+	</div>
+
+	<div class="kareler">
+	<div id="kareler2"></div><div id="kareler2"></div><div id="kareler2"></div>
+	<div id="kareler2"></div><div id="kareler2"></div><div id="kareler2"></div>
+	<div id="kareler2"></div><div id="kareler2"></div>
+	</div>
+	<div class="vseparator"></div>
+	<div id="kareler1"></div><div id="kareler1"></div><div id="kareler1"></div>
+
+<div id="urun">
+	<img src="../hepsiburada_proje/urunlerimages/r1.png">
+	<p><h4>Star Wars BB-8 Droid Akıllı Robot</h4></p>
+	<div id="indirim1"><br>&#37;31</div>
+	<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">699,00 TL</li>
+		<li >484,00 TL</li></div>
+	<div id="extraindirim">
+		<p style="color:green;">Süper Hızlı</p>
+	</div>
+
+	<div id="sepetekle"><h4>Sepete Ekle</h4></div>
+</div>
+
+<div id="urun">
+	<img src="../hepsiburada_proje/urunlerimages/r2.png">
+	<p><h4>Sphero Star Wars R2D2 Droid Akıllı Robot</h4></p>
+	<div id="indirim1"><br>&#37;16</div>
+	<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">699,00 TL</li>
+		<li >584,01 TL</li></div>
+	<div id="extraindirim">
+		<p style="color:green;">Süper Hızlı</p>
+	</div>
+
+	<div id="sepetekle"><h4>Sepete Ekle</h4></div>
+</div>
+
+<div id="urun" style="margin-top: 15px;">
+	<img src="../hepsiburada_proje/urunlerimages/r3.png">
+	<p><h4>Dji Mavic Air Dron (Arctic White)</h4></p>
+	<div id="indirim1"><br>&#37;31</div>
+	<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">5.399,00 TL</li>
+		<li >4.299,00 TL</li></ul></div>
+	<div id="extraindirim">
+		<p style="color:green;">Süper Hızlı</p>
+	</div>
+
+	<div id="sepetekle"><h4>Sepete Ekle</h4></div>
+</div>
+
+<hr width="100%" color="e4e4e4" size="1" >
+
+<div id="sayfano">
+		<div class="tab"><button class="tablinks" id="defaultOpen">1</button></div>
+  		<div class="tab"><button class="tablinks">2</button></div>
+  		<div class="tab"><button class="tablinks">3</button></div>
+  		<div class="tab"><button class="tablinks">4</button></div>
+  		<div class="tab"><button class="tablinks">5</button></div>
+  		<div class="tab"><button class="tablinks">6</button></div>
+  		<div class="tab"><button class="tablinks">7</button></div>
+  		<div class="tab"><button class="tablinks" style="margin-top: -5px;background: white;">...</button></div>
+  		<div class="tab"><button class="tablinks">782</button></div>
+</div>
+
+<div id="encoksatanlar">
+	<h2>En Çok Aranan Kelimeler</h2>
+	<div id="csname">
+		<div class="tab"><button class="tablinks" id="defaultOpen"><p>Monopoly</p></button></div>
+  		<div class="tab"><button class="tablinks"><p>Stres Çarkı</p></button></div>
+  		<div class="tab"><button class="tablinks"><p>Jenga</p></button></div>
+  		<div class="tab"><button class="tablinks"><p>Kumbara</p></button></div>
+	</div>
+</div>
+
+<div id="coksatanlar">
+
+	<p><h2 style="text-align: center">Hobi &amp; Eğlence Kategorisindeki En Çok Satan Ürünler</h2></p>
+	<hr width="100%" color="#e4e4e4" size="1" >
+
+	<div id="satirlar">
+		<div id="sayilar">1</div>
+		<img src="../hepsiburada_proje/urunlerimages/cs1.png">
+		<p><h4>Pal Oyuncak Look Look (Bak Bak)</h4></p>
+		<div id="indirim1"><br>&#37;57<br><p style="font-size: 10px;margin-left: -130px">İndirim</p></div>
+		<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">83,27 TL</li>
+		<li >36,10 TL</li></ul></div>
+		<img style="width: 30%; height: 80px; top:-45px;" src="../hepsiburada_proje/urunlerimages/bar1.png">
+	</div>
+
+	<hr width="100%" color="#e4e4e4" size="1" >
+
+	<div id="satirlar">
+		<div id="sayilar">1</div>
+		<img src="../hepsiburada_proje/urunlerimages/cs2.png">
+		<p><h4>Redka Pratik Bardaklar</h4></p>
+		<div id="indirim1"><br>&#37;35<br><p style="font-size: 10px;margin-left: -130px">İndirim</p></div>
+		<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">65,00 TL</li>
+		<li >42,40 TL</li></ul></div>
+		<img style="width: 30%; height: 80px; top:-45px;" src="../hepsiburada_proje/urunlerimages/bar1.png">
+	</div>
+
+	<hr width="100%" color="#e4e4e4" size="1" >
+
+	<div id="satirlar">
+		<div id="sayilar">1</div>
+		<img src="../hepsiburada_proje/urunlerimages/cs3.png">
+		<p><h4>Redka Dedektif Akıl Mantık Zeka ve Strateji Oyunu</h4></p>
+		<div id="indirim1"><br>&#37;20<br><p style="font-size: 10px;margin-left: -130px">İndirim</p></div>
+		<div id="indirim2">
+		<ul><li style="text-decoration: line-through;">50,00 TL</li>
+		<li >39,90 TL</li></ul></div>
+		<img style="width: 30%; height: 80px; top:-45px;" src="../hepsiburada_proje/urunlerimages/bar1.png">
+	</div>
+
+	<hr width="100%" color="#e4e4e4" size="1" >
+
+	<div id="satirlar">
+		<div id="sayilar">1</div>
+		<img src="../hepsiburada_proje/urunlerimages/cs4.png">
+		<p><h4>Parrot Mambo FPV(CameraiFlypad,VR Goggles)</h4></p>
+		<div id="indirim1" style="display: none;"><br>&#37;32<br><p style="font-size: 10px;margin-left: -130px">İndirim</p></div>
+		<div id="indirim2">
+		<ul><li style="text-decoration: line-through;"></li>
+		<li >15,48 TL</li></ul></div>
+		<img style="width: 30%; height: 80px; top:-45px; left: 50px" src="../hepsiburada_proje/urunlerimages/bar1.png">
+	</div>
+
+	<hr width="100%" color="#e4e4e4" size="1" >
+</div>
+
+
+
+</div>
+
+
+
+
+	
+
+	<div id="footer">
+		<div id="logo2">
+			<img src="../hepsiburada_proje/images/logo.png">
+			<ul id="yanyana">
+				<li><h4>Siparişlerim</h4></li>
+				<li><h4>İade</h4></li>
+				<li><h4>Yardım</h4></li>
+			</ul>
+		</div>
+
+		<div id="teslimat">
+			<h3>Bugün Teslimat</h3>
+			<img src="../hepsiburada_proje/images/teslimat.png">
+			<p><br>Saat 14:00'e kadar verdiğiniz</br><br>siparişler aynı gün kapınızda.</br></p>
+		</div>
+
+		<div class = "vertical_line2"></div>
+
+		<div id="teslimat">
+			<h3>Tek Tıkla Güvenli Alışveriş</h3>
+			<img src="../hepsiburada_proje/images/tektik.png">
+			<p><br>Ödeme ve adres bilgilerinizi kaydedin, güvenli alışveriş yapın.</br></p>
+		</div>
+
+		<div class = "vertical_line2"></div>
+
+		<div id="teslimat">
+			<h3>Mobil Cebinizde</h3>
+			<img src="../hepsiburada_proje/images/mobil.png">
+			<p><br>Dilediğiniz her yerden güvenli alışverişin keyfini çıkarın.</br></p>
+		</div>
+
+		<div class = "vertical_line2"></div>
+
+		<div id="teslimat">
+			<h3>Kolay İade</h3>
+			<img src="../hepsiburada_proje/images/kolay.png">
+			<p><br>Aldığınız ürünü iade etmek hiç bu kadar kolay olmamıştı.</br></p>
+		</div>
+
+		<hr class="submenu-seperator" />
+
+		<div id="liste">
+		<ul>
+			<li><h3>Hepsiburada.com</h3></li>
+			<li><a href="#">Hakkımızda</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Bizden Haberler</a></li>
+			<li><a href="#">İletişim</a></li>
+			<li><a href="#">İşlem Rehberi</a></li>
+			<li><a href="#">Hesabım</a></li>
+			<li><a href="#">Yardım</a></li>
+			<li><a href="#">Hepsiburada.com Twitter Destek</a></li>
+			<li><a href="#">Mobil Uygulamalar</a></li>
+			<li><a href="#">Bilgi Toplumu Hizmetleri</a></li>
+			<li><a href="#">Gizlilik Politikası</a></li>
+			<li><a href="#">Kişisel Verilerin Korunması</a></li>
+			<li><a href="#">İş Sağlığı ve Güvenliği Çevre Politikamız</a></li>
+		</ul>
+
+		<ul>
+			<li><h3>Hepsiburada Kariyer</h3></li>
+			<li><a href="#">Linkedin</a></li>
+			<li><a href="#">Kariyer.net</a></li>
+			<li><a href="#">Yenibiris.com</a></li>
+		</ul>
+
+		<ul>
+			<li><h3>Kurumsal</h3></li>
+			<li><a href="#">Tedarikçi Olmak İstiyorum</a></li>
+			<li><a href="#">Satış Yapmak İstiyorum</a></li>
+			<li><a href="#">Hepsipay İşyeri Olmak İstiyorum</a></li>
+			<li><a href="#">Tedarikçi Davranış Kuralları</a></li>
+			<li><a href="#">Girişimci Kadınlara Teknoloji Gücü</a></li>
+		</ul>
+
+		
+
+		</div>
+
+		<div id="liste">
+			<ul>
+			<li><h3>Kategoriler</h3></li>
+			<li><a href="#">Bilgisayar</a></li>
+			<li><a href="#">Telefon</a></li>
+			<li><a href="#">Elektronik</a></li>
+			<li><a href="#">Beyaz Eşya/Mutfak</a></li>
+			<li><a href="#">Foto/Kamera</a></li>
+			<li><a href="#">Spor/Outdoor</a></li>
+			<li><a href="#">Giyim/Ayakkabı</a></li>
+			<li><a href="#">Takı/Mücevher</a></li>
+			<li><a href="#">Saat/Gözlük/Aksesuar</a></li>
+			<li><a href="#">Kozmetik/Sağlık/Bakım</a></li>
+			<li><a href="#">Anne / Bebek / Oyuncak</a></li>
+			<li><a href="#">Kitap / Film / Müzik</a></li>
+			<li><a href="#">Hobi / Oyun Konsolu</a></li>
+			<li><a href="#">Kırtasiye / Ofis</a></li>
+			<li><a href="#">Oto Aksesuar / Yapı Market / Bahçe</a></li>
+			<li><a href="#">Kış Lastiği</a></li>
+			<li><a href="#">Ev Dekorasyonu / Mobilya</a></li>
+			<li><a href="#">Pet Shop</a></li>
+			<li><a href="#">Süpermarket</a></li>
+			<li><a href="#">S7 / S7 Edge / Galaxy S8 / Galaxy S8 Plus / Galaxy S9 / S9 Plus / Galaxy Note 8 / J7 Prime</a></li>
+			<li><a href="#">Xiaomi Mi 6</a></li>
+			<li><a href="#">iPhone 6 / iPhone SE / iPhone 7 / iPhone 7 Plus / iPhone X / iPhone 8 Plus / iPhone 8</a></li>
+			<li><a href="#">LG V30+</a></li>
+			<li><a href="#">Kurumsal Satış</a></li>
+		</ul>
+		</div>
+
+		<div id="liste">
+			<ul>
+			<li><h3>Özel Sayfalar</h3></li>
+			<li><a href="#">Sevgililer Günü</a></li>
+			<li><a href="#">Anneler Günü</a></li>
+			<li><a href="#">Yılbaşı Hediyeleri</a></li>
+			<li><a href="#">Babalar Günü</a></li>
+			<li><a href="#">Tüm Kategoriler</a></li>
+			<li><a href="#">Avon</a></li>
+			<li><a href="#">Samsung</a></li>
+			<li><a href="#">Adidas</a></li>
+			<li><a href="#">Nike</a></li>
+			<li><a href="#">Apple</a></li>
+			<li><a href="#">Vestel</a></li>
+			<li><a href="#">Bosch</a></li>
+			<li><a href="#">Asus</a></li>
+			<li><a href="#">Lego</a></li>
+			<li><a href="#">Koton</a></li>
+			<li><a href="#">Türk Markalar</a></li>
+			<li><a href="#">Tüm Mağazalar</a></li>
+			<li><a href="#">Eski Site Haritası</a></li>
+			<li><a href="#">Yeni Site Haritası</a></li>
+		</ul>
+		</div>
+
+		<div id="liste">
+			<ul>
+				<h3 style="margin-left: -40px;">Bizi Takip Edin</h3>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip1.png"><p>Facebook</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip2.png"><p>Twitter</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip3.png"><p>LinkedIn</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip4.png"><p>Google+</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip5.png"><p>Pinterest</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip6.png"><p>Instagram</p></a></li>
+				<li><a href="#"><img src="../hepsiburada_proje/images/takip7.png"><p>Youtube</p></a></li>
+			</ul>
+				<li><h3>Ödeme</h3></li>
+				<li><a href="#">Ödeme Seçenekleri</a></li>
+				<li><a href="#">Banka Kampanyaları</a></li>
+			<ul>
+				
+			</ul>
+		</div>
+
+		<div id="liste">
+			<li><h3>Mobil Uygulamalar</h3></li>
+			<div id="mobil">
+				<ul>
+				<img src="../hepsiburada_proje/images/mobil1.png">
+				<h3 ><li id="kelime1">APP STORE'dan</li></h3>
+				<h3 ><li id="kelime2">İNDİREBİLİRSİNİZ</li></h3>
+				</ul>
+			</div>
+
+			<div id="mobil">
+				<ul>
+				<img src="../hepsiburada_proje/images/mobil2.png">
+				<h3 ><li id="kelime1">APP STORE'dan</li></h3>
+				<h3 ><li id="kelime2">İNDİREBİLİRSİNİZ</li></h3>
+				</ul>
+			</div>
+
+			<div id="mobil">
+				<ul>
+				<img src="../hepsiburada_proje/images/mobil3.png">
+				<h3 ><li id="kelime1">GOOGLE PLAY'den</li></h3>
+				<h3 ><li id="kelime2">İNDİREBİLİRSİNİZ</li></h3>
+				</ul>
+			</div>
+		</div>
+
+		<div id="liste">
+			<li><h3>Giyim-Moda</h3></li>
+			<li><a href="#">Tesettür Elbise</a></li>
+			<li><a href="#">Etek</a></li>
+			<li><a href="#">Topuklu Ayakkabı</a></li>
+			<li><a href="#">Çizme</a></li>
+			<li><a href="#">Tunik</a></li>
+			<li><a href="#">Trençkot</a></li>
+			<li><a href="#">Bayan Mont / Çocuk Kıyafetleri</a></li>
+			<li><a href="#">Kaban</a></li>
+			<li><a href="#">Ayakkabı</a></li>
+			<li><a href="#">Hediye</a></li>
+		</div>
+	</div>
+
+	<div id="enAlt">
+			<h3><li>İNTERETTE GÜVENLİ</li></h3>
+			<h3><li>ALIŞVERİŞ</li></h3>
+			<img id="picture1" src="../hepsiburada_proje/images/logo3.png">
+			<img id="picture2" src="../hepsiburada_proje/images/logo2.png">
+			<h3><li id="nesine">Nesine.com</li></h3>
+			<li><img id="picture3" src="../hepsiburada_proje/images/enalt.png"></li>
+			<li><p id="paragraf1">Supported By
+Her şey ayağına gelsin! © Copyright 1998 - 2018 D-MARKET Elektronik Hizmetler Tic. A.Ş. Her Hakkı Saklıdır.</p></li>
+			<li><p id="paragraf2">Hepsiburada.com, Bir Doğan Online Markasıdır.</p></li>
+		</ul>
+	</div>
+	
+</div>
+
+
+<script type="text/javascript">
+    [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){
+    el.addEventListener('click', onClick, false);
+});
+
+function onClick(e){
+    e.preventDefault();
+    var el = this.parentNode;
+    el.classList.contains('show-submenu') ? hideSubMenu(el) : showSubMenu(el);
+}
+
+function showSubMenu(el){
+    el.classList.add('show-submenu');
+    document.addEventListener('click', function onDocClick(e){
+        e.preventDefault();
+        if(el.contains(e.target)){
+            return;
+        }
+        document.removeEventListener('click', onDocClick);
+        hideSubMenu(el);
+    });
+}
+
+function hideSubMenu(el){
+    el.classList.remove('show-submenu');
+}
+</script>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+<script type="text/javascript">
+function Goster(idAc1,idAc2){document.getElementById(idAc1).style.display = 'block';document.getElementById(idAc2).style.display = 'block';}
+function Gizle(idAc1,idAc2){document.getElementById(idAc1).style.display = 'none';document.getElementById(idAc2).style.display = 'none';}
+function GizleGoster(idAc){document.getElementById(idAc).style.display = 'block';}
+function GizleGoster2(idAc){document.getElementById(idAc).style.display = 'none';}
+</script>
+
+</body>
+</html>

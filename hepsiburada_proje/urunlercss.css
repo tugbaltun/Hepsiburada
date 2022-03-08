@@ -1,0 +1,2359 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+ @media only screen and (min-width: 320px){
+html {
+    box-sizing: border-box;
+}
+
+body{
+  font:12px Arial;
+  margin:auto;
+  background: #e4e4e4;
+} 
+#container {
+  padding: 0px; 
+  height: auto;
+  max-width: 1600px;
+  margin:0px auto;
+  background: #e4e4e4;
+}
+#header1 {
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+  width: auto;
+  margin:0px auto;
+  float: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: white;
+}
+
+#ekler{
+    margin-left:auto;
+    margin-right:auto;
+    color:rgb(10,0,100);
+    background-color: #ffffff;
+    position: relative;
+    background: white;
+  cursor: pointer;
+}
+  
+a:link {color:#919191;}      /* ziyaret edilmemiş */
+a:visited {color:#919191;}  /* ziyaret edilmiş */
+a:hover {color:#ed4c59;}  /* fare üzerindeyken */
+a:active {
+  color: #919191;
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+  font-size: 9px;
+  text-decoration: none;
+} /* aktifken */
+
+
+#header2 {
+  padding: 2px;
+  position: relative;
+  float: none;
+  height: 75px;
+  margin:0px auto;
+  background-color: white;
+  width: 100%;
+  width: auto;
+  text-align: center;
+  font-style: normal;
+  font-weight: 200;
+  color: #f28b00;
+  font-size: 40px;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: blink;
+  background: white;
+}
+#logo {
+  padding: 2px;
+  height: 60px;
+  width: 20%;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin:0px auto;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+#aramamotoru {
+  position: relative;
+  float: left;
+  height: 40px;
+  width: 40%;
+  margin:0px auto;
+}
+
+form {/*arama çubuğunun tamamının div olmayan hali*/
+  width:100%; 
+}
+
+.boxbox {/*arama çubuğunun tamamını kapsayan div özellikleri*/
+    height:50px;
+    border-style:solid; 
+    border-width:6px;
+    border-color:#999;
+  border-radius: 5px;
+  margin:0px auto;
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.boxbox img{
+  width: 6%;
+  height: 70%;
+  position: relative;
+  float: left;
+  margin:1% 3% 1% 3%;
+
+}
+
+.search, .submit {/*arama metin kısmı ve butonu text özellikleri*/
+  font-size:12px;
+  height: 30%; 
+  border:none;
+  width: 75%;
+}
+
+.search {/*arama çubuğu metin kısmı-placeholder*/
+  width: 75%;
+  height: 85%;
+  position: relative;
+  float: left;
+  background: white;
+  padding: 1%;
+  margin-top: 0.5%;
+}
+
+textarea, input {
+   font-family:"open sans", sans-serif;
+   font-weight: bold; 
+}
+
+textarea:focus, input:focus {
+   color:black;
+   outline:none; 
+}
+
+.submit {
+  font-weight:600;
+  background:#999;
+  color:#fff;
+  height:100%;
+  width:11%;
+  float:right;
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+}
+
+#uyegirisi {
+  padding: 2px;
+  height: 40px;
+  width: 10%;
+  float: left;
+  margin: 0.1% 2% auto 2%;
+  position: relative;
+  float: left;
+  background: white;
+  cursor: pointer;
+}
+
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+}
+
+.nav {
+  position: relative;
+  float: left;
+    text-align: center;
+    margin:0px auto;
+    margin-top: -5%;
+}
+
+/* Navigation */
+
+.nav {
+    font-family: Georgia, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.nav-items {
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active,
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    top:-15px;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active {/*Giriş Yap ksmının texti*/
+    color: black;
+    font-weight: bold;
+    margin-top:5px;
+    float: right;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::before {
+    opacity: 1;
+    -webkit-transform: translate(0, 5px);
+    transform: translate(0, 5px);
+}
+
+.nav-link {/*giriş yap yazan kısmın tümünü kapsayan sınıf*/
+    position: relative;
+    width: 155px;
+    height: 50px;
+    background-color: white;
+    border:2px solid #999;
+    border-radius: 10px;
+}
+
+.nav-link img{
+    width: 16%;
+    height: 70%;
+    margin: 3% 3% auto auto;
+    vertical-align: baseline;
+    vertical-align: middle;
+}
+
+.nav-link span{
+  margin:0px auto;
+  position: relative;
+  float: none;
+}
+
+.down .nav-link::after {/*aşağıyı gösteren işaret*/
+    content: "";
+    position:relative;
+    float: right;
+    margin: % 4% auto 4%;
+    border: 5px solid transparent;
+    border-top-color: #999;
+}
+
+.submenu {/*alta açılır menü*/
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    width: 120%;
+    background: #fff;
+    border-radius: 3px;
+    line-height: 1.46667;
+    margin-top: 3%;
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    opacity:0;
+    -webkit-transform: translate(0, 0) scale(.85);
+    transform: translate(0, 0)scale(.85);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    pointer-events: none;
+    border: 2px solid #999;
+    border-radius: 3%;
+    margin:0px auto 0px -10%;
+}
+
+.submenu::after, 
+.submenu::before {
+    content: ""; 
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    height: 0;
+}
+
+.submenu::after {
+    border-bottom-color: #fff;
+}
+
+.submenu::before {/*alt menü işaretinin tamamı*/
+    margin-left: -13px;
+    border: 5% solid transparent;
+    border-bottom-color: #999;
+    -webkit-filter:blur(1px);
+    filter:blur(1px);
+}
+
+.submenu-items {
+    list-style: none;
+    padding: 30px 20px;
+}
+
+.submenu-item {
+    display: block;
+    text-align: left;
+}
+
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {/*at menü kelimelerin birbiri arasındaki uzaklıklar*/
+    color:black;
+    padding: 5px 10px;
+}
+
+.submenu-link:hover {
+    color: #999;
+}
+
+.submenu-seperator {
+    height: 0;
+    margin: 5px/*üst*/ 10px/*sağ*/ 30px/*alt*/ 10px/*sol*/;
+    border-top: 1px solid #eee;
+}
+
+.show-submenu .submenu {
+    opacity: 1;
+    -webkit-transform: translate(0, 25px) scale(1);
+    transform: translate(0, 25px) scale(1);
+    pointer-events: auto;
+}
+
+#sepet {
+  margin: 5px;
+  float: left;
+  height: 50px;
+  width: 10%;
+  border:3px solid #919191;
+  border-radius: 10px;
+  background-color: #919191;
+  padding-top: 20px;
+  margin-left: 10px;
+  margin-top:0px;
+  color:white;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#sepet img{
+  width: 30%;
+    height: 150%;
+    margin: 0px auto;
+    margin-top: -10%;
+    position: relative;
+    float: left;
+}
+
+#sepet p{
+font-weight: bold;
+font-size: 15px;
+color: white;
+margin: -5px 0px 0px 5px;
+}
+#menu {
+  height: 60px;
+  float: none;
+  margin:0px auto;
+  background: #f28b00;
+  width: 100%;
+  position: relative;
+}
+
+#yanyana{
+    margin-left:auto;
+    margin-right:auto;
+    color:rgb(10,0,100);
+    background-color: #ffffff;
+    position: relative;
+    background: white;
+    line-height: 5px;
+}
+
+#yanyana a{
+  color: black;text-decoration: none;line-height: 5px;
+}
+
+.dropdown {/*menünün başlık kısmı*/
+    float: left;
+    overflow: hidden;
+    width: 10%;
+    font-size: 12px;
+}
+
+
+.dropdown .dropbtn {/*mega menü kutucuğunun dropbtn özelliği*/
+    border: none;
+    outline: none;
+    color: white;
+    padding: 5px 16px;
+    font: inherit;
+    margin: 0;
+    width: 100%;
+    background: #f28b00;
+    height: 60px;
+}
+
+.dropdown:hover .dropbtn {/*menü başlığı üzerine gelince*/
+    background-color: white;
+    color:#f28b00;
+}
+
+.dropdown-content {/*mega menünün açılır kısmı*/
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    left: 0px;
+    z-index: 1;
+    margin: 0px auto;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.column {
+    float: left;
+    width: 14%;
+    padding: 5px;
+    background-color: white;
+    height: auto;
+    margin: 0px auto;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.column ul,
+.column li{
+list-style: none outside none;
+list-style-type:none; 
+display: block;
+}
+
+.column li{
+position: relative;
+display: block;
+float: left;
+padding:2px;
+margin: 0px auto;
+left:-20%;
+}
+
+
+
+a:hover{
+  color: #f28b00;
+}
+
+.column img{
+  width: 70%;
+  height: 50%;
+  position: relative;
+  float: left;
+  margin: 0px auto;
+}
+
+
+#baslik {
+  height: 40px;
+  width: 80%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  background: #e4e4e4;
+  float: left;
+  color: #000;
+  cursor: pointer;
+}
+
+#baslik ul {
+list-style: none outside none;
+float: left;
+}
+
+#baslik li{
+border-width: 1px 0;
+margin: 5px 0 0 0;
+float:left;
+}
+
+#baslik li h4{
+margin: -10px 0 0 0;
+position: relative;
+float: left;
+}
+
+#baslikici {
+  height: 20px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  background: #fff;
+  float: left;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+
+#galeri1 {
+  height: 380px;
+  width: 100%;
+  position: relative;
+  margin: 55px auto 25px auto;
+  cursor: pointer;
+
+}
+
+.slider ul {
+  list-style-type: none;
+}
+
+.slider a {
+  color: #00c5b9;
+  text-decoration: none;
+}
+
+.slider h1 {
+  color: #FFF;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 2.4em;
+}
+
+/** ---------------------------------------
+ * Slider 
+ ----------------------------------------*/
+.container {/*slider kutusunun tamamı*/
+  width: 63.5%;
+  height:380px;
+  margin:auto auto 30% 10%;
+  position: relative;
+  float: left;
+  background-color: white;
+  box-shadow: 2px 2px 2px #919191;
+}
+
+.slider-wrapper {/*slider imgini kapsayan kutu*/
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: #FFF;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: -10px;
+  
+}
+
+.slider-wrapper li {
+  display: none;
+}
+
+.slider-wrapper .current-slide {
+  display: block;
+}
+
+.slider-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: 360px;
+  top: 0;
+  left: 0;
+}
+
+/**
+ * ---[Botones-Control] ---------------------- 
+ **/
+.control-buttons {
+  text-align: center;
+  position: relative;
+  float: none;
+}
+
+.control-buttons li img{
+  cursor: pointer;
+  display: inline-block;
+  background: #424f66;
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+}
+  
+.control-buttons li {
+  cursor: pointer;
+  display: inline-block;
+  background: #424f66;
+  text-indent: -300%;
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.control-buttons li.active {
+  background: #00c5b9;
+}
+
+
+#gununfirsatlari{
+  background: white;
+  width: 15%;
+  height: 390px;
+  position: relative;float: left;
+  margin: -415px 0 0 25px;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #919191;
+}
+
+#gununfirsatlari span{
+  margin: 0 auto 0 24%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#sayac{
+  width: 20%;
+  height: 60px;
+  position: relative;
+  float: left;
+  border-radius: 7px;
+  border:1px solid black;
+  margin: auto 15px auto 10px;
+  text-align: center;
+  line-height: 1px;
+}
+#sayac h3{font-size: 20px; }
+#sayac h4{color:#919191; }
+
+#gununfirsatlari img{
+  clear: all;
+  width: 80%;
+  height: auto;
+  margin-left: 15%;
+}
+
+#gununfirsatlari p
+{
+    width:200px; 
+    word-wrap:normal;
+}
+
+#gununfirsatlari #indirim1{
+  background: red;
+  width: 30%;
+  height: 50px;
+  color:white;
+  font-weight: bold;
+  font-size:20px;
+  text-align: center;
+  position: relative;float: left;
+  line-height: 15px;
+}
+
+#gununfirsatlari #indirim2 ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#gununfirsatlari #indirim2 {
+  width: 65%;
+  height: auto;
+  color:#919191;
+  position: relative;float: left;
+  font-size: 15px;
+  top:-15px;
+}
+
+#extraindirim{
+  line-height: 5px;
+  position: relative;float: left;
+  margin:-15px 0 0 0;
+  background: #e4e4e4;
+}
+
+#urunler {
+  height: 900px;
+  width: 80%;
+  float: none;
+  margin:0px auto 0 10%;
+  background: white;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #919191;
+}
+
+#urunbaslik {    
+position: absolute;       
+ background-color: #e4e4e4;
+ height: 40px;
+ width: 85%;
+ border-radius: 5px;
+ margin: 20px;
+}
+#urunbaslik ul {
+ margin: 0px;
+ padding: 0px;
+}
+#urunbaslik ul li {
+ float: left;
+ width: 20%;
+ list-style-type: none;
+} 
+
+#urunbaslik ul li:last-child{position: absolute;right:0;}
+
+#urunbaslik ul li a {
+ line-height: 40px;
+ font-family: Tahoma;
+ color:black;
+ text-decoration: none;
+ text-align: center;
+ display: block;
+ font-size: 14px;
+
+}
+
+#urunbaslik ul li a:last-child{border-right:1px solid white;}
+
+#urunbaslik ul li a:hover {
+    background-color: #919191;
+}
+
+.vl {
+    border-left: 6px solid #919191;
+    height: 30px;
+    position: absolute;
+    margin: -17%  0 0 70%;
+}
+
+
+
+.ok{
+  width:0;height:0;
+  border-top:10px solid #919191;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  margin: -10% 0 0 80%
+}
+
+#kareler1{
+  background: #f28b00;
+  position: relative;float: right;
+  width: 1%;
+  height: 15px;
+  margin: 3%  5px 0 0;
+  cursor: pointer;
+}
+
+.vseparator {
+  background: #919191;
+  position: relative;float: right;
+  width: 0.1%;
+  height: 15px;
+  margin: 3%  5px 0 5px;
+}
+
+#kareler2{
+  background: #919191;
+  position: relative;float: right;
+  width: 10%;
+  height: 6px;
+  margin: 3%  5px 0 0;
+}
+
+.kareler:hover #kareler2{background: #f28b00;}
+
+.kareler{
+  background: #fff;
+  position: relative;float: right;
+  width: 4%;
+  height: 25px;
+  margin: 3%  5px 0 0;
+  word-wrap:normal;
+  cursor: pointer;
+}
+
+#urun{
+  background: white;
+  width: 30%;
+  height: 650px;
+  position: relative;float: left;
+  margin: 80px 0 0 35px;
+  padding: 15px;
+  cursor: pointer;
+  background: white;
+}
+
+#urun:hover{box-shadow: 3px 3px 4px #919191;}
+
+
+#urun img{
+  clear: all;
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+}
+
+#urun p
+{
+    width:200px; 
+    word-wrap:normal;
+}
+
+#urun #indirim1{
+  background: red;
+  width: 30%;
+  height: 50px;
+  color:white;
+  font-weight: bold;
+  font-size:20px;
+  text-align: center;
+  position: relative;float: left;
+  line-height: 15px;
+}
+
+#urun #indirim2 ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#urun #indirim2 {
+  width: 65%;
+  height: auto;
+  color:#919191;
+  position: relative;float: left;
+  font-size: 15px;
+  top:-15px;
+}
+
+#urun #extraindirim{
+  line-height: 5px;
+  position: relative;float: left;
+  margin:-15px 0 0 0;
+  background: white;
+}
+
+#urun #sepetekle{
+  width: 40%;
+  height: 40px;
+  background: #f28b00;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;float: left;
+  margin: 10px 0 0 30%;
+  border-radius: 5px;
+}
+
+
+#urun #sepetekle h4{margin: 10px 0 0 0;}
+
+#sayfano {/*keşfet resimleri vs.*/
+    width: 68%;
+    height:50px ;
+    background: white;
+    margin:50px auto 0 auto;
+    position: relative;
+}
+
+.tab {
+    float: left;
+    background-color: #fff;
+    width: 9%;
+    height: 100%;
+    margin-right: 15px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: #e4e4e4;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #919191;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #f28b00;
+    color: white;
+}
+
+
+
+#encoksatanlar {/*keşfet resimleri vs.*/
+    width: 100%;
+    height:60px ;
+    background: white;
+    margin:90px auto 0 auto;
+    position: absolute;
+    box-shadow: 2px 2px 2px #919191;
+  }
+
+#encoksatanlar h2{position: relative;float: left;margin: 20px 0 0 30px;}
+
+#csname {/*keşfet resimleri vs.*/
+    width: 50%;
+    height:50px ;
+    background: white;
+    margin:05px auto 0 20px;
+    position: relative;float: left;
+}
+
+#csname .tab {
+    float: left;
+    background-color: #fff;
+    width: 20%;
+    height: 100%;
+    margin-right: 15px;
+}
+
+#csname .tab p{margin-top: -5px;}
+
+/* Style the buttons inside the tab */
+#csname .tab button {
+    display: block;
+    background-color: #e4e4e4;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+/* Change background color of buttons on hover */
+#csname .tab button:hover {
+    background-color: #919191;
+}
+
+/* Create an active/current "tab button" class */
+#csname .tab button.active {
+    background-color: #f28b00;
+    color: white;
+}
+
+#coksatanlar{
+  width: 100%;
+  height: 700px;
+  margin: 40px 0 0px 0;
+  position: relative;float: left;
+  margin-top: 200px;
+  background: white;
+}
+
+#satirlar{
+  width: 95%;
+  height: 100px;
+  background: white;
+  position: relative;float: left;
+  margin: 30px;
+}
+
+#satirlar #sayilar{
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  border:2px solid #919191;
+  position: relative;float: left;
+  margin: 30px;
+  text-align: center;
+  padding: 5px;
+  color:#919191;
+  background: white;
+}
+
+#satirlar img{
+  width: 8%;
+  height: 60px;
+  margin: 15px 10px 0 0;
+  position: relative;float: left;
+}
+
+#satirlar p
+{
+  width:300px; 
+  word-wrap:normal;
+  margin:0 auto;
+  position: relative;float: left;
+}
+
+#satirlar #indirim1{
+  background: red;
+  width: 4%;
+  height: 40px;
+  color:white;
+  font-weight: bold;
+  font-size:18px;
+  text-align: center;
+  position: relative;float: left;
+  line-height: 15px;
+  margin:0 0 0 10px;
+}
+
+#satirlar #indirim2 ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#satirlar #indirim2 {
+  width: 40%;
+  height: auto;
+  color:#919191;
+  position: relative;float: left;
+  font-size: 15px;
+  top:-15px;
+  margin:0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer{
+  width: 80%;
+  height: 1250px;
+  background:white;
+  position: relative;
+  margin: 1800px auto 0 auto;
+  box-shadow: 2px 2px 2px #919191;
+}
+
+#logo2{
+  background: white;
+  width: 100%;
+  height:100px;
+  position: relative;
+  float: left;
+}
+
+#logo2 img{
+  width: 17%;
+  height: 40px;
+  margin:2% auto auto 0px;
+}
+
+.vertical_line {
+  height: 20px;
+  width: 1px; 
+  background:black; 
+  position: relative; 
+  float: left;top:15px;
+} 
+
+#logo2 ul {
+list-style: none outside none;
+float: right;
+}
+
+#logo2 li{
+border-width: 1px 0;
+margin: 5px ;
+float:left;
+color: #919191;
+}
+
+#teslimat {
+  width: 24%;
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+  padding: 5%;
+  float: left;
+  margin:-5% auto auto auto;
+}
+
+
+#teslimat img{
+  width: 60%;
+  height: 100px;
+  margin-left:20%;
+}
+
+#teslimat img:hover{
+  background: #f28b00;
+  color: #f28b00;
+}
+
+#teslimat h3{
+  text-align: center;
+}
+
+#teslimat p{
+  line-height: 10px;
+  text-decoration-line: bold;
+  text-align: center;
+  margin: 2% auto auto auto;
+}
+
+
+.vertical_line2 {
+  height: 10%;
+  width: 1px;
+  background:#919191;
+  position: relative;
+  float: left;
+  margin:3% 0px 0 0px;
+} 
+
+
+#liste{
+  width: 20%;
+  height:auto;
+  background: white;
+  position: relative;
+  float: left;
+}
+
+#liste li,
+#liste a{
+  display: block;
+  color:#919191;
+  text-decoration:none;
+  line-height: 25px;
+  font-size: 13px;
+}
+
+#liste h3{
+  color:black;
+}
+
+#liste a:hover{
+  color:black; 
+}
+
+#liste img{
+  width: 20%;
+  height: 40px;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin-left: -20%;
+}
+#liste p{
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 100%;
+  font-size: 14px;
+  position: relative;
+  float: left;
+}
+
+#mobil {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  border:1px solid #919191;
+  margin-bottom: 5%;
+}
+
+#mobil img{
+  width: 15%;
+  height: 15%;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin:-6% 2% auto -2%;
+}
+
+#mobil h3 li{
+  line-height: 0px;
+  position: relative;
+  font-size: 80%;
+}
+
+#kelime1{
+  color:#919191;
+  font-weight: bold;
+}
+
+#kelime1:hover{
+  color:black;
+}
+
+#kelime2{
+  color:#e4e4e4;
+}
+
+#enAlt {
+  width: 80%;
+  height: auto;
+  background: pink;
+  margin: 1% auto auto 10%; 
+  display: block;
+  text-decoration:none;
+  position: relative;
+  float: left;
+  background: #e4e4e4;
+}
+
+#enAlt ul,
+#enAlt li{
+  list-style-type:none; 
+}
+
+
+#enAlt h3 li{
+  line-height: 0px;
+  position: relative;
+  margin:1% 2% 1% 0px;
+  display: block;
+  text-decoration:none;
+  font-size: 100%;
+}
+
+#enAlt #picture1{
+  width: 10%;
+  height: 40px;
+  float: left;
+  margin: -4% 0 0 15%;
+}
+
+#enAlt #picture2{
+  width: 6%;
+  height: 30px;
+  float: left;
+  margin-bottom: 5%;
+  vertical-align: middle;
+}
+
+#nesine{
+  top:15%;
+  left:5%;
+  cursor: pointer;
+}
+
+#picture3{
+  width: 60%;
+  height: 40px;
+  position: relative;
+  float: right;
+  margin:-5% 0px 2% auto;
+  position: relative;
+  float: right; 
+}
+
+#paragraf1{
+  margin:0px 0px 5% auto;
+  position: relative;
+  float: right; 
+  font-size: 100%;
+}
+
+#paragraf2{
+  margin:2% -20% 2% auto;
+  position: relative;
+  float: right; 
+  font-size: 100%;
+  color: #919191;
+}
+
+
+}
+
+/** ---------------------------------------
+ * Responsive 
+ ----------------------------------------*/
+ @media only screen and (max-width: 825px) {
+
+
+  .container {
+    width: 600px;
+  }
+
+  .slider-wrapper {
+    height: 300px;
+  }
+ }
+
+ @media only screen and (max-width: 535px) {
+  .container {
+    padding: 5px;
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
+
+  .slider-wrapper {
+    height: 200px;
+  }
+  
+  .slider-wrapper .caption {
+    display: none;
+  }
+
+ }
+
+ @media only screen and (max-width: 410px) {
+  .slider-wrapper {
+    height: 160px;
+  }
+ }
+
+
+  @media only screen and (min-width: 990px) and (max-width: 1199px){
+
+  #logo {
+  padding: 2px;
+  height: 60px;
+  width: 20%;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin:0px 10% auto auto ;
+}
+
+  #aramamotoru {
+  position: relative;
+  float: left;
+  height: 40px;
+  width: 30%;
+  margin:0px auto;
+}
+
+.search {/*arama çubuğu metin kısmı-placeholder*/
+  font-size: 10px;
+  width: 70%;
+}
+
+.submit {
+  font-weight:600;
+  background:#999;
+  color:#fff;
+  height:100%;
+  width:15%;
+  float:right;
+  transition: all 100ms ease-in-out;
+}
+
+#uyegirisi {
+  padding: 2px;
+  height: 40px;
+  width: 10%;
+  float: left;
+  margin: 0.1% 2% auto 5%;
+  position: relative;
+  float: left;
+  background: white;
+}
+
+.nav {
+  position: relative;
+  float: left;
+    text-align: center;
+    margin:auto auto 2% auto 15%;
+}
+
+.nav-link {/*giriş yap yazan kısmın tümünü kapsayan sınıf*/
+    position: relative;
+    width: 155px;
+    height: 50px;
+    background-color: white;
+    border:2px solid #999;
+    border-radius: 10px;
+    margin:0px -2% auto 5%;
+}
+
+#sepet {
+  float: right;
+  margin:0px 3% auto 2%;
+}
+
+.dropdown {/*menünün başlık kısmı*/
+    width: 11%;
+}
+
+.column {
+    width: 20%;
+}
+
+#galeri1 {
+  height: 375px;
+  width: 100%;
+  position: relative;
+  margin: auto auto 10% auto;
+}
+
+.container {/*slider kutusunun tamamı*/
+  width: 90%;
+}
+
+
+#galeri2 {
+  height: 400px;
+  width: 90%;
+  overflow: hidden;
+}
+
+#gf{
+  width: 100%;
+  margin: 0% auto 0px auto;
+}
+
+#slider2 {
+  width: 90%;
+  height: 400px;
+}
+
+#slider2 ul li {/*sliderın resimlerinin olduğu kısım*/
+  width: 80%;
+  height: 330px;
+  line-height: 300px;
+}
+
+#slider2 ul li img{
+  width: 40%;
+  margin: 1% auto auto auto;
+}
+
+
+#kesfet {/*keşfet resimleri vs.*/
+    width: 90%;
+    height:515px ;
+    background: white;
+    margin:2.5% auto 2.5% auto;
+    position: relative;
+}
+
+
+/* Style the tab content */
+.tabcontent {/*keşfet resimleri vs.*/
+    width: 70%;
+    overflow: hidden;
+}
+
+.tabcontent img{/*keşfet resimleri vs.*/
+    width: 140%;
+}
+
+
+
+#incele2{
+  width: 90%;
+  height: 150px;
+  position: relative;
+  margin: auto auto auto auto;
+}
+
+#incele2 img{
+  width: 100%;
+  height: 150px;
+}
+
+#urunlereGit1{
+  width: 100%;
+  height: 450px;
+  margin: 5% auto 5% auto;
+  background: white;
+  position: relative;
+}
+
+#bigimg {
+  float: left;
+  width: 40%;
+  height: 100%;
+  position: relative;
+  background: pink;
+}
+
+#bigimg img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+
+#smallimg{
+  width: 19%;
+  height: 40%;
+  background: white;
+  position: relative;
+  float: left;
+  margin: auto auto auto auto;
+}
+
+#smallimg img{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+#smallimg h3{
+  color:#919191;
+  vertical-align: bottom;
+  margin: 1.25% 1.75% 0px 20%;
+  font-size: 14px;
+  text-align: center;
+  width: 200px;
+}
+
+#smallimg2{
+  width: 19%;
+  height: 40%;
+  background: white;
+  position: relative;
+  float: right;
+  margin: auto auto auto auto;
+  right:2.5%;
+}
+
+
+#smallimg2 img{
+  width: 100%;
+  height: auto;
+  margin: 20px 0px 5px 20px;
+}
+
+#smallimg2 h3{
+  color:#919191;
+  vertical-align: bottom;
+  margin: -5% 5% 0px 20%;
+  font-size: 14px;
+  text-align: center;
+  width: 200px;
+}
+
+
+#footer{
+  width: 90%;
+  height: 1700px;
+  background:white;
+  position: relative;
+  margin: 32% auto 0px auto;
+}
+
+#logo2{
+  background: white;
+  width: 100%;
+  height:100px;
+  position: relative;
+  float: left;
+}
+
+#logo2 img{
+  width: 17%;
+  height: 40px;
+  margin:2% auto auto 0px;
+}
+
+.vertical_line {
+  height: 20px;
+  width: 1px; 
+  background:black; 
+  position: relative; 
+  float: left;top:15px;
+} 
+
+#logo2 ul {
+list-style: none outside none;
+float: right;
+}
+
+#logo2 li{
+border-width: 1px 0;
+margin: 5px ;
+float:left;
+color: #919191;
+}
+
+#teslimat {
+  width: 24%;
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+  padding: 5%;
+  float: left;
+  margin:-5% auto auto auto;
+}
+
+
+#teslimat img{
+  width: 60%;
+  height: 100px;
+  margin-left:20%;
+}
+
+#teslimat img:hover{
+  background: #f28b00;
+  color: #f28b00;
+}
+
+#teslimat h3{
+  text-align: center;
+}
+
+#teslimat p{
+  line-height: 10px;
+  text-decoration-line: bold;
+  text-align: center;
+  margin: 2% auto auto auto;
+}
+
+
+.vertical_line2 {
+  height: 10%;
+  width: 1px;
+  background:#919191;
+  position: relative;
+  float: left;
+  margin:3% 0px 0 0px;
+} 
+
+
+#liste{
+  width: 33%;
+  height:auto;
+  background: white;
+  position: relative;
+  float: left;
+}
+
+#liste li,
+#liste a{
+  display: block;
+  color:#919191;
+  text-decoration:none;
+  line-height: 25px;
+  font-size: 13px;
+}
+
+#liste h3{
+  color:black;
+}
+
+#liste a:hover{
+  color:black; 
+}
+
+#liste img{
+  width: 20%;
+  height: 40px;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin-left: -20%;
+}
+#liste p{
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 100%;
+  font-size: 14px;
+  position: relative;
+  float: left;
+}
+
+#mobil {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  border:1px solid #919191;
+  margin-bottom: 5%;
+}
+
+#mobil img{
+  width: 15%;
+  height: 15%;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin:-6% 2% auto -2%;
+}
+
+#mobil h3 li{
+  line-height: 0px;
+  position: relative;
+  font-size: 80%;
+}
+
+#kelime1{
+  color:#919191;
+  font-weight: bold;
+}
+
+#kelime1:hover{
+  color:black;
+}
+
+#kelime2{
+  color:#e4e4e4;
+}
+
+#enAlt {
+  width: 80%;
+  height: auto;
+  background: pink;
+  margin: 1% auto auto 10%; 
+  display: block;
+  text-decoration:none;
+  position: relative;
+  float: left;
+  background: #e4e4e4;
+}
+
+#enAlt ul,
+#enAlt li{
+  list-style-type:none; 
+}
+
+
+#enAlt h3 li{
+  line-height: 0px;
+  position: relative;
+  margin:1% 2% 1% 0px;
+  display: block;
+  text-decoration:none;
+  font-size: 100%;
+}
+
+#enAlt #picture1{
+  width: 10%;
+  height: 40px;
+  float: left;
+  margin: -5% 0 0 20%;
+}
+
+#enAlt #picture2{
+  width: 10%;
+  height: 40px;
+  float: left;
+  margin:1% -10% auto -30%;
+  vertical-align: middle;
+}
+
+
+#picture3{
+  width: 60%;
+  height: 40px;
+  position: relative;
+  float: left;
+  margin:9% 0px 2% 0%;
+  position: relative;
+}
+
+#paragraf1{
+  margin:0px 0px 5% 0%;
+  position: relative;
+  float: left; 
+  font-size: 100%;
+}
+
+#paragraf2{
+  margin:2% 0% 2% -85%;
+  position: relative;
+  float: left; 
+  font-size: 100%;
+  color: #919191;
+}
+
+
+}
+ 
+
+  @media only screen and (min-width: 480px) and (max-width: 979px){
+
+    #header1{display: none;}
+
+  #logo {
+  padding: 2px;
+  height: 60px;
+  width: 20%;
+  vertical-align: middle;
+  position: absolute;
+  float: left;
+  margin:0px auto auto 35%;
+}
+
+#header2 {
+  height: 120px;
+}
+
+.boxbox {/*arama çubuğunun tamamını kapsayan div özellikleri*/
+  margin:60px auto auto 12%;
+  position: absolute;
+  float: left;
+  width: 220%;
+}
+
+#aramamotoru {
+  position: relative;
+  float: left;
+  height: 40px;
+  width: 40%;
+  margin:0px auto;
+}
+
+#uyegirisi {
+  padding: 2px;
+  height: 40px;
+  width: 10%;
+  float: left;
+  margin: auto  5% auto 20%;
+  position: relative;
+  float: left;
+  background: white;
+}
+
+
+.nav-link {/*giriş yap yazan kısmın tümünü kapsayan sınıf*/
+    background-color: white;
+    border:2px solid white;
+}
+
+.nav-link img{
+    width: 15%;
+    height: 65%;
+    margin: 3% 3% auto auto;
+}
+
+.nav-link span{
+  margin:0px auto;
+  position: relative;
+  float: none;
+}
+
+
+#sepet {
+  margin: 5px;
+  float: left;
+  height: 50px;
+  width: 15%;
+  border:3px solid white;
+  border-radius: 10px;
+  background-color: white;
+  margin:0 auto auto 80%;
+  position: absolute;
+}
+
+#sepet img{
+  width: 40%;
+    height: 150%;
+    margin: 0px auto;
+    position: relative;
+    float: left;
+    margin: -20% auto auto auto;
+}
+
+#sepet p{
+font-weight: bold;
+font-size: 13px;
+color: #919191;
+margin: -10% 0% auto auto;
+}
+
+#menu {
+  display: none;
+}
+
+#incele1 img{
+  height: auto;
+  width:100%;
+  margin-top: -1%;
+}
+
+#galeri1 {
+  height: 30px;
+  width: 100%;
+  position: relative;
+  margin: -10% auto 330px auto;
+}
+
+
+.container {/*slider kutusunun tamamı*/
+  width: 90%;
+  height:350px;
+  margin:auto auto 10px auto;
+}
+
+.slider-wrapper {/*slider imgini kapsayan kutu*/
+  height: 350px;
+  
+}
+
+.slider-wrapper img {
+  height: 350px;
+}
+
+.control-buttons {
+  margin-top: -10%;
+}
+
+#galeri2 {
+  height: 320px;
+  width: 90%;
+  position: relative;
+  margin: auto auto auto auto;
+  background: #fff;
+  overflow: hidden;
+}
+
+#gf{
+  width: 100%;
+  margin: 0% auto 0px auto;
+  height: 2%;
+  padding-top: 20px;
+  position: relative;
+  float: center;
+}
+
+#slider2 {
+  position: relative;
+  overflow: hidden;
+  margin: auto auto 0 auto;
+  border-radius: 4px;
+  width: 85%;
+  height: 50%;
+  background-color: pink;
+}
+
+#slider2 ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#slider2 ul li {/*sliderın resimlerinin olduğu kısım*/
+  position: relative;
+  display: block;
+  float: left;
+  padding: 0;
+  width: 100%;
+  background: #ffffff;
+  text-align: center;
+  line-height: 300px;
+}
+
+#slider2 ul li img{
+  position: relative;
+  width: 30.8%;
+  margin: auto auto auto -19%;
+  height:80%;
+  top: 0;
+  left: 0;
+
+}
+
+#kesfet {/*keşfet resimleri vs.*/
+    width: 90%;
+    overflow: hidden;
+}
+
+
+.tabcontent {/*keşfet resimleri vs.*/
+    width: 65%;
+}
+
+.tabcontent img{/*keşfet resimleri vs.*/
+    float: left;
+    width: 220%;
+    height:516px ;
+    background: white;
+}
+
+#incele2{
+  width: 90%;
+  height: 350px;
+  position: relative;
+  margin: auto auto auto auto;
+  margin: 0 auto 10px auto;
+}
+
+#incele2 img{
+  width: 100%;
+  height: 150px;
+  margin: auto auto auto auto;
+}
+
+#urunlereGit1{
+  width: 100%;
+  height: 350px;
+  margin: 5px auto 10px auto;
+  background: white;
+  position: relative;
+}
+
+#bigimg {
+  float: left;
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+
+#bigimg img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#bigimg button{
+  height: 30px;
+  margin: 95px 0 0 14px;
+}
+
+
+#smallimg{
+  width: 19%;
+  height: 150px;
+  background: white;
+  position: relative;
+  float: left;
+  margin: auto auto auto auto;
+}
+
+#smallimg a{
+  text-decoration:none;
+}
+
+#smallimg img{
+  width: 100%;
+  height: 150px;
+  margin: 2.5% 0px 0.75% 10%;
+}
+
+#smallimg h3{
+  color:#919191;
+  vertical-align: bottom;
+  margin: 1.25% 1.75% 0px 20%;
+  font-size: 16px;
+  text-align: center;
+  width: 200px;
+}
+
+#smallimg2{
+  width: 19%;
+  height: 150px;
+  background: white;
+  position: relative;
+  float: right;
+  margin: auto auto auto auto;
+  right:2.5%;
+  top:2.5%;
+}
+
+
+#smallimg2 img{
+  width: 100%;
+  height: 150px;
+  margin: 20px 0px 5px 20px;
+}
+
+#smallimg2 h3{
+  color:#919191;
+  vertical-align: bottom;
+  margin: -5% 5% 0px 20%;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+#footer{
+  width: 100%;
+  height: 1600px;
+  background:white;
+  position: relative;
+  margin: 10px auto 0px auto;
+}
+
+#logo2{
+  background: white;
+  width: 100%;
+  height:100px;
+  position: relative;
+  float: left;
+}
+
+#logo2 img{
+  width: 17%;
+  height: 40px;
+  margin:2% auto auto 0px;
+}
+
+.vertical_line {
+  height: 20px;
+  width: 1px; 
+  background:black; 
+  position: relative; 
+  float: left;top:15px;
+} 
+
+#logo2 ul {
+list-style: none outside none;
+float: right;
+}
+
+#logo2 li{
+border-width: 1px 0;
+margin: 5px ;
+float:left;
+color: #919191;
+}
+
+#teslimat {
+  width: 24%;
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+  padding: 5%;
+  float: left;
+  margin:-5% auto auto auto;
+}
+
+
+#teslimat img{
+  width: 60%;
+  height: 100px;
+  margin-left:20%;
+}
+
+#teslimat img:hover{
+  background: #f28b00;
+  color: #f28b00;
+}
+
+#teslimat h3{
+  text-align: center;
+}
+
+#teslimat p{
+  line-height: 10px;
+  text-decoration-line: bold;
+  text-align: center;
+  margin: 2% auto auto auto;
+}
+
+
+.vertical_line2 {
+  height: 10%;
+  width: 1px;
+  background:#919191;
+  position: relative;
+  float: left;
+  margin:3% 0px 0 0px;
+} 
+
+
+#liste{
+  width: 20%;
+  height:auto;
+  background: white;
+  position: relative;
+  float: left;
+}
+
+#liste li,
+#liste a{
+  display: block;
+  color:#919191;
+  text-decoration:none;
+  line-height: 25px;
+  font-size: 13px;
+}
+
+#liste h3{
+  color:black;
+}
+
+#liste a:hover{
+  color:black; 
+}
+
+#liste img{
+  width: 20%;
+  height: 40px;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin-left: -20%;
+}
+#liste p{
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 100%;
+  font-size: 14px;
+  position: relative;
+  float: left;
+}
+
+#mobil {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  border:1px solid #919191;
+  margin-bottom: 5%;
+}
+
+#mobil img{
+  width: 15%;
+  height: 15%;
+  vertical-align: middle;
+  position: relative;
+  float: left;
+  margin:-6% 2% auto -2%;
+}
+
+#mobil h3 li{
+  line-height: 0px;
+  position: relative;
+  font-size: 80%;
+}
+
+#kelime1{
+  color:#919191;
+  font-weight: bold;
+}
+
+#kelime1:hover{
+  color:black;
+}
+
+#kelime2{
+  color:#e4e4e4;
+}
+
+#enAlt {
+  width: 80%;
+  height: auto;
+  background: pink;
+  margin: 1% auto auto 10%; 
+  display: block;
+  text-decoration:none;
+  position: relative;
+  float: left;
+  background: #e4e4e4;
+}
+
+#enAlt ul,
+#enAlt li{
+  list-style-type:none; 
+}
+
+
+#enAlt h3 li{
+  line-height: 0px;
+  position: relative;
+  margin:1% 2% 1% 0px;
+  display: block;
+  text-decoration:none;
+  font-size: 100%;
+}
+
+#enAlt #picture1{
+  width: 10%;
+  height: 30px;
+  float: left;
+  margin: -35px 0 0 20%;
+}
+
+#enAlt #picture2{
+  width: 10%;
+  height: 40px;
+  float: left;
+  margin:auto;
+  vertical-align: middle;
+}
+
+
+#picture3{
+  width: 60%;
+  height: 40px;
+  position: relative;
+  float: left;
+  margin:40px auto auto -75px;
+  position: relative;
+}
+
+#paragraf1{
+  margin:0px 0px 5% 0%;
+  position: relative;
+  float: left; 
+  font-size: 100%;
+}
+
+#paragraf2{
+  margin:2% 0% 2% -85%;
+  position: relative;
+  float: left; 
+  font-size: 100%;
+  color: #919191;
+}
+
+}

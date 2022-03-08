@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<style>
+@media screen and (min-width:961px){
+  /*Masa Üstü css kodlarımız*/
+  * {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    font-family: Arial;
+    position: relative;
+    background-color:#e4e4e4;
+    height:auto;
+}
+
+.container{
+    margin:auto;
+    width:100%;
+    min-height:500px;
+    max-width: 1500px;
+    height:auto;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #919191;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
+    position:relative;
+}
+
+.tablink:first-child{
+  margin-left:150px;
+}
+
+
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color:black;
+    display: none;
+    padding: 100px 20px;
+    height:auto;
+    width:80%;
+    background-color:white;
+    margin: auto;
+    height:auto;
+}
+
+table #firsttable{
+  width: 100%;
+  padding: 5px;
+}
+
+th{
+  height: 30px;
+}
+
+.tek{
+  width:100%;
+  background-color:#e4e4e4;
+}
+
+.ilk{
+  width: 30%;
+}
+
+.second{
+  width:100%;
+}
+
+#kampanya{
+  background-color: #eceeb6;
+  border-radius: 5px;
+  border-color: black 1 px solid;
+  width: 45%;
+  height: auto;
+  min-height: 45px;
+  font-size: 12px
+}
+
+#kampanyalar li a{
+  text-decoration: none;
+  color: black;
+}
+
+#aciklama p
+{
+    width:100%; 
+    word-wrap:normal;
+}
+
+#yorumlar{
+  height: 550px;
+}
+
+#yorumlar img{
+  position: relative;float: left;
+  width: 25%;
+  height: auto;
+}
+
+#yorumlar #puanlama{
+  width: 25%;
+  height: 55px;
+  position:relative; float: left;
+  background: white;
+  padding: 5px;
+  margin:0 40% 0 0;
+  cursor: pointer;
+}
+
+#yorumlar #puanlama p{margin-top: 2px;}
+
+#yorumlar #puanlama img{
+  width: 35%;
+  height: 20px;
+}
+
+#yorumlar #puanlama:hover{
+  background: #e4e4e4;
+  border-radius: 20px;
+}
+
+#yorum{
+  width: 20%;
+  height: 40px;
+  background: #f28b00;
+  border-radius: 5px;
+  margin: 0 auto;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+#yorum p {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  left: -50px;
+}
+
+#yorum img{
+  width: 15%;height: auto;
+  margin: 0 -40px 0 15%;
+  position: relative;float: left;
+}
+
+
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<button class="tablink" onclick="openPage('aciklama', this, 'white')" id="defaultOpen">Ürün Açıklaması</button>
+<button class="tablink" onclick="openPage('kampanyalar', this, 'white')" >Kampanyalar</button>
+<button class="tablink" onclick="openPage('yorumlar', this, 'white')">Yorumlar</button>
+<button class="tablink" onclick="openPage('kerdiTaksit', this, 'white')">Kredi/Taksit Seçenekleri</button>
+
+<div id="aciklama" class="tabcontent">
+  <h3>Pal Oyuncak Look Look (Bak Bak)</h3>
+  <p>Sevimli yaratıkların hepsi birbirine benziyor… Dikkatli bak, odaklan ve karttaki şekilleri bul… Meydan okumak için bir kart çekin.
+   Aynı yaratıkları 2 farklı renkli çerçeve içinde bulmanız mı gerekecek, yoksa numarayı seçtiğinizde hızlı matematik mi yapacaksınız? Rakibinizle yarışmak için kartı ya seçin ya da çözün. Kazanan kartı alır. Yeterli sayıda kart toplayarak "Look Look” diyen ilk oyuncu olun ve oyunu kazanın. Oyun sahası 8 adet arka – önü değişebilen çerçeveden oluşur ve bu şekilde her oynandığında yeni bir oyun oynanıyor havası verir. 68 adet davet kartından oluşur. 2 veya daha fazla oyuncu ile oynanır.</p>
+   <h5>Bağlantısal düşünme, problem çözme,seçici dikkat, odaklanma ve konsantrasyon,parça – bütün ilişkisi, kopya etme ve bilgiyi transfer etme becerilerini geliştirir</h5><br>
+   <ul style="list-style-type: none;padding-left: 0;">
+     <li>Yaş grubu: 6+</li>
+     <li>Oyuncu sayısı: 2 - 6</li>
+   </ul>
+   <h3>PAL HAKKINDA</h3>
+   <p>Ham Madde seçiminden başlayarak üretim ve tasarım aşamalarının tamamında, çocuk sağlığına önem veren, gelişim alanlarını destekleyen, onları "Oyun Hayatına” hazırlayan oyuncaklar tasarlamak ve sunmak misyonuna sahip PAL aşağıda sıralanan vizyon çerçevesinde faaliyetlerini sürdürmektedir.</p>
+   <ul>
+     <li> Çocukların gelişim alanlarına göre oyun materyalleri hazırlamak</li>
+     <li>Yaşına, gelişim seviyesine, ilgi ve ihtiyaçlarına uygun eğitici oyuncaklar hazırlamak</li>
+     <li>Yenilikçi olmak – her konuda güven veren oyuncaklar</li>
+     <li>Daha çok eğlenmelerini sağlamak</li>
+     <li>Oyalamayı değil, aileleri ile ortak zaman geçirmelerini sağlayacak eğitici oyuncaklar sunmak</li>
+     <li>Aileleri oyuncak konusunda bilinçlendirmek – çocukları için en doğru oyuncağı almak</li>
+     <li> Malzemesinden paketlenmesine kadar en kaliteli hizmeti vermek</li>
+     <li>Sağlıklı, dayanıklı, uluslararası kalite ve güvenlik normlarından geçmiş ve çevre dostu malzeme kullanmak</li>
+   </ul>
+<table id="firsttable">
+      <tr class="tek">
+         <td class="ilk">Garanti Süresi(Ay)</td>
+         <td class="second">12</td>
+      </tr>
+      <tr>
+         <td class="ilk">Yurtdıına Satış</td>
+         <td class="second">Yok</td>
+      </tr>
+      <tr class="tek">
+         <td class="second">Stok Kodu</td>
+         <td>OYUNPALGFQUBJ</td>
+      </tr>
+   </table>
+
+
+</div>
+
+<div id="kampanyalar" class="tabcontent">
+  <h3>Kampanyalar</h3>
+  <div id="kampanya">
+    <h3>Aşağıdaki kampanyalar, satıcısı Hepsiburada olan ürünlerde geçerlidir.</h3>
+  </div>
+  <ul>
+    <li><a href="#">30 TL ve üzeri alışverişlerde kargo bedava!</a></li>
+  </ul>
+</div>
+
+<div id="yorumlar" class="tabcontent" style="display: block;">
+  <h3>Pal Oyuncak Look Look (Bak Bak) Yorumları</h3>
+  <img src="../hepsiburada_proje/urunlerimages/urun.png">
+  <div id="puanlama">
+    <img src="../hepsiburada_proje/urunlerimages/bes.png">
+    <p><b>Çok İyi</b>(26)</p>
+  </div>
+  <div id="puanlama">
+    <img src="../hepsiburada_proje/urunlerimages/dort.png">
+    <p><b>İyi</b>(4)</p>
+  </div>
+  <div id="puanlama">
+    <img src="../hepsiburada_proje/urunlerimages/uc.png">
+    <p><b>Ne İyi/ Ne Kötü</b>(1)</p>
+  </div>
+  <div id="puanlama">
+    <img src="../hepsiburada_proje/urunlerimages/iki.png">
+    <p><b>Kötü</b>(0)</p>
+  </div>
+  <div id="puanlama">
+    <img src="../hepsiburada_proje/urunlerimages/bir.png">
+    <p><b>Çok Kötü</b>(0)</p>
+  </div>
+  <img src="../hepsiburada_proje/urunlerimages/ortalamapuan.png" style="margin: -250px 0 0 0; float: right;">
+  <div id="yorum"><img src="../hepsiburada_proje/urunlerimages/yorum.png"><p>Yorum Yap</p></div>
+</div>
+
+<div id="kerdiTaksit" class="tabcontent">
+
+</div>
+
+
+</div>
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+     
+</body>
+</html> 
